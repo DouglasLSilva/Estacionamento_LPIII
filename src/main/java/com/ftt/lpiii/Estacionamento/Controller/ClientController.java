@@ -15,5 +15,6 @@ public class ClientController extends BaseController<Client> {
     @Autowired
     public ClientController(IClientApp clientApp) {
         super(clientApp);
+        _clientApp = clientApp;
     }
 }

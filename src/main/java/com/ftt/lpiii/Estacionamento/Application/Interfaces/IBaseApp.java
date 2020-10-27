@@ -5,7 +5,7 @@ import com.ftt.lpiii.Estacionamento.Domain.Shared.Entity;
 import java.util.List;
 
 public interface IBaseApp<T extends Entity> {
-    void add(T entity) throws Exception;
+    T add(T entity) throws Exception;
 
     List<T> getAll(Class<T> tClass) throws Exception;
 

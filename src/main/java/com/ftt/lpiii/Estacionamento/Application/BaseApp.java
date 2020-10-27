@@ -19,8 +19,8 @@ public abstract class BaseApp<T extends Entity> implements IBaseApp<T> {
         _baseRepository = baseRepository;
     }
 
-    public void add(T entity) throws Exception {
-        _baseRepository.add(entity);
+    public T add(T entity) throws Exception {
+        return _baseRepository.add(entity);
     }
 
     public List<T> getAll(Class<T> tClass) throws Exception {

@@ -37,6 +37,11 @@ public abstract class BaseController<T extends Entity> {
         return ResponseEntity.ok(t);
     }
 
+    @RequestMapping(method = RequestMethod.POST, produces = {"application/json"})
+    public ResponseEntity<T> Post(@RequestBody T entity) throws Exception {
+        return ResponseEntity.ok().body(_baseApp.add(entity));
+    }
+
     @RequestMapping(method = RequestMethod.PUT, produces = {"application/json"})
     public ResponseEntity<Boolean> Update(@RequestBody T entity) throws Exception {
         _baseApp.update(entity);
