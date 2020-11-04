@@ -10,7 +10,7 @@ public class HibernateContext {
 
     public HibernateContext() {
         try{
-            sessionFactory = new Configuration().configure().buildSessionFactory();
+            setSessionFactory(new Configuration().configure().buildSessionFactory());
         }
         catch (Exception e){
             System.out.println("Erro ao procurar o config hibernate " + e.getMessage());
