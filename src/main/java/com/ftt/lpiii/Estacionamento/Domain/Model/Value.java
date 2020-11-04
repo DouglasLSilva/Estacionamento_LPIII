@@ -3,6 +3,7 @@ package com.ftt.lpiii.Estacionamento.Domain.Model;
 import com.ftt.lpiii.Estacionamento.Domain.Enums.OccupationType;
 import com.ftt.lpiii.Estacionamento.Domain.Shared.Entity;
 
+@javax.persistence.Entity
 public class Value extends Entity {
 
     public double getValue() {

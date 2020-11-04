@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">LP3@Daniel</property>
+        <property name="hibernate.connection.url">jdbc:mysql://estacionamento-mysql.mysql.database.azure.com:3306/estacionamento?serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">Ameixa@estacionamento-mysql</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="hbm2ddl.auto">update</property>
+
+        <mapping class="com.ftt.lpiii.Estacionamento.Domain.Model.Client" />
+        <mapping class="com.ftt.lpiii.Estacionamento.Domain.Model.Occupation" />
+        <mapping class="com.ftt.lpiii.Estacionamento.Domain.Model.ParkSlot" />
+        <mapping class="com.ftt.lpiii.Estacionamento.Domain.Model.Value" />
+
+    </session-factory>
+</hibernate-configuration>
