@@ -26,22 +26,6 @@ public class Occupation extends Entity {
         this.parkSlot = parkSlot;
     }
 
-    public Date getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(Date dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public Date getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(Date dataSaida) {
-        this.dataSaida = dataSaida;
-    }
-
     public OccupationType getOccupationType() {
         return occupationType;
     }
@@ -50,26 +34,12 @@ public class Occupation extends Entity {
         this.occupationType = occupationType;
     }
 
-    public boolean isOccupied() {
-        return isOccupied;
-    }
-
-    public void setOccupied(boolean occupied) {
-        isOccupied = occupied;
-    }
-
     @OneToOne(targetEntity =  Client.class, fetch = FetchType.EAGER)
     private Client client;
 
     @OneToOne(targetEntity = ParkSlot.class, fetch = FetchType.EAGER)
     private ParkSlot parkSlot;
 
-    private Date dataEntrada;
-
-    private Date dataSaida;
-
     private OccupationType occupationType;
-
-    private boolean isOccupied;
 
 }
