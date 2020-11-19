@@ -2,9 +2,12 @@ package com.ftt.lpiii.Estacionamento.Controller;
 
 import com.ftt.lpiii.Estacionamento.Application.Interfaces.IClientApp;
 import com.ftt.lpiii.Estacionamento.Domain.Model.Client;
+import com.ftt.lpiii.Estacionamento.Domain.Model.Occupation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("api/Client")
@@ -41,5 +44,12 @@ public class ClientController extends BaseController<Client> {
     public ResponseEntity<Client> GetByCPF(@RequestParam String cpf){
         Client client = _clientApp.getByCPF(cpf);
         return ResponseEntity.ok().body(client);
+    }
+
+    @Override
+    public ResponseEntity<Boolean> Update(@RequestBody Client entity) throws Exception {
+        var oldClient = _clientApp.getById(entity.id);
+        entity.setOccupation(oldClient.getOccupation());
+        return super.Update(entity);
     }
 }

@@ -2,10 +2,10 @@ package com.ftt.lpiii.Estacionamento.Domain.Model;
 
 import com.ftt.lpiii.Estacionamento.Domain.Enums.OccupationType;
 import com.ftt.lpiii.Estacionamento.Domain.Shared.Entity;
-
 import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @javax.persistence.Entity
 public class Occupation extends Entity {
@@ -34,12 +34,44 @@ public class Occupation extends Entity {
         this.occupationType = occupationType;
     }
 
-    @OneToOne(targetEntity =  Client.class, fetch = FetchType.EAGER)
+    public Date getDataEntrda() {
+        return dataEntrda;
+    }
+
+    public void setDataEntrda(Date dataEntrda) {
+        this.dataEntrda = dataEntrda;
+    }
+
+    public Date getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(Date dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    @ManyToOne(targetEntity =  Client.class, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("occupation")
     private Client client;
 
-    @OneToOne(targetEntity = ParkSlot.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = ParkSlot.class, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("occupation")
     private ParkSlot parkSlot;
 
     private OccupationType occupationType;
+
+    private String placa;
+
+    private Date dataEntrda;
+
+    private Date dataSaida;
 
 }
